@@ -20,15 +20,19 @@ import { join } from 'path';
     AuthModule, 
     VisitModule,
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '../../dist/client/employee'),
+      rootPath: join(join(__dirname, 'client/employee')),
       serveRoot: '/employee-app'
     }),
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '../../dist/client/patron'),
+      rootPath: join(join(__dirname, 'client/patron')),
       serveRoot: '/patron-app'
     })
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule {
+  constructor() {
+    console.log()
+  }
+}
