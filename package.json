@@ -10,17 +10,21 @@
     "build": "nest build",
     "build:employee": "cd employee-client && ng build --prod",
     "build:patron": "cd patron-client && ng build --prod",
+    "build:clients": "npm run build:employee && npm run build:patron",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
-    "start:prod": "npm run build:employee && npm run build:patron && node dist/main",
+    "start:prod": "npm run install:clients && npm run build:clients && node dist/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "install:employee": "cd employee-client && npm i",
+    "install:patron": "cd patron-client && npm i",
+    "install:clients": "npm run install:employee && npm run install:patron"
   },
   "dependencies": {
     "@nestjs/common": "^7.0.0",
