@@ -5,6 +5,8 @@ import { NgxMaskModule } from 'ngx-mask';
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { EmployeeRoutingModule } from './employee-routing.module';
 import { EmployeeComponent } from './employee.component';
+import { AuthInterceptor } from '../helpers/auth.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 @NgModule({

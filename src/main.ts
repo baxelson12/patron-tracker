@@ -21,7 +21,7 @@ async function bootstrap() {
   // app.useStaticAssets(join(__dirname, '../../dist/client/patron'), { prefix: '/patron-app'});
   // // Prepare the Employee SPA
   // app.useStaticAssets(join(__dirname, '../../dist/client/employee/'), { prefix: '/employee-app'});
-
+  app.setGlobalPrefix('api')
   await app.listen(port);
   console.log(`Server running on port ${port}`);
 }

@@ -4,6 +4,7 @@ import { Result } from '@zxing/library';
 import { ZXingScannerComponent } from '@zxing/ngx-scanner';
 import { interval } from 'rxjs';
 import { throttle } from 'rxjs/operators';
+import { EmployeeService } from './employee.service';
 
 @Component({
   selector: 'app-employee',
@@ -24,6 +25,8 @@ export class EmployeeComponent implements AfterViewInit {
 
   availableDevices: MediaDeviceInfo[];
   currentDevice: MediaDeviceInfo;
+
+  constructor(private es: EmployeeService) {}
 
   ngAfterViewInit(): void {
     this.scanner.camerasFound.subscribe((devices: MediaDeviceInfo[]) => {
@@ -69,6 +72,13 @@ export class EmployeeComponent implements AfterViewInit {
 
   get name() { return this.employeeForm.get('name') }
   get phone() { return this.employeeForm.get('phone') }
+
+  onSubmit() {
+    this.es.post(this.employeeForm.value).subscribe((val) => {
+      console.log(val);
+      this.resetForm();
+    })
+  }
 
   resetForm(): void {
     this.employeeForm.reset()
