@@ -6,8 +6,7 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "prebuild": "rimraf dist",
-    "preinstall": "npm run install:employee && npm run install:patron",
+    "prebuild": "rimraf dist && npm run install:employee && npm run install:patron",
     "install:employee": "cd employee-client && npm i",
     "install:patron": "cd patron-client && npm i",
     "build": "nest build",
