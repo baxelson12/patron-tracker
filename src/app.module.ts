@@ -10,7 +10,13 @@ import { join } from 'path';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot(), 
+    TypeOrmModule.forRoot({
+      type: "postgres",
+      extra: { ssl: true },
+      url: process.env.DATABASE_URL || "postgres://user:pass@domain:5432/database",
+      entities: ["dist/**/*.entity{.ts,.js}"],
+      synchronize: true,
+    }), 
     EmployeeModule, 
     AuthModule, 
     VisitModule,
