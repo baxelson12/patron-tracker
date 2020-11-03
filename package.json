@@ -7,7 +7,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "prebuild": "rimraf dist",
-    "preinstall": "npm i -g @angular/cli"
+    "preinstall": "npm i -g @angular/cli",
     "build": "nest build",
     "build:employee": "cd employee-client && ng build --prod",
     "build:patron": "cd patron-client && ng build --prod",
