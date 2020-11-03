@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CreateEmployeeDto } from 'src/shared/dto/employee.dto';
@@ -26,6 +26,12 @@ export class EmployeeService {
         return employee;
     }
 
+    async findByEmployer(employerId: number) {
+        return await this.er.find({
+            where: { employerId: employerId }
+        })
+    }
+
     async create(employerId: number, employeeDto: CreateEmployeeDto) {
         const employee = this.er.create(employeeDto);
         employee.employer = await this.findById(employerId);
@@ -33,5 +39,9 @@ export class EmployeeService {
         return this.er.save(employee);
     }
 
-    destroy(id: number) {}
+    async destroy(adminId: number, employeeId: number) {
+        const employee = await this.findById(employeeId)
+        if (employee.employerId !== adminId) { throw new UnauthorizedException('Employee not registered to admin.')}
+        this.er.delete(employee);
+    }
 }

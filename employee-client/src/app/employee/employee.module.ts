@@ -4,13 +4,13 @@ import { CommonModule } from '@angular/common';
 import { NgxMaskModule } from 'ngx-mask';
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { EmployeeRoutingModule } from './employee-routing.module';
-import { EmployeeComponent } from './employee.component';
-import { AuthInterceptor } from '../helpers/auth.interceptor';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { EmployeeContainer } from './employee.container';
+import { AdminComponent } from './admin/admin.component';
+import { EmployeeComponent } from './employee/employee.component';
 
 
 @NgModule({
-  declarations: [EmployeeComponent],
+  declarations: [EmployeeContainer, EmployeeComponent, AdminComponent],
   imports: [
     CommonModule,
     EmployeeRoutingModule,
