@@ -7,10 +7,10 @@
   "license": "UNLICENSED",
   "scripts": {
     "prebuild": "rimraf dist",
-    "postinstall": "(cd employee-client && npm i && ng build --prod); (cd patron-client && npm i && ng build --prod);",
+    "postinstall": "npm run build:clients",
     "build": "nest build",
-    "build:employee": "cd employee-client && ng build --prod",
-    "build:patron": "cd patron-client && ng build --prod",
+    "build:employee": "cd employee-client && npm i && ng build --prod",
+    "build:patron": "cd patron-client && && npm i && ng build --prod",
     "build:clients": "npm run build:employee && npm run build:patron",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
