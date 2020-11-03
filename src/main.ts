@@ -17,10 +17,10 @@ async function bootstrap() {
   );
   app.enableCors();
   
-  // Prepare the Patron SPA
-  app.useStaticAssets(join(__dirname, '../../dist/client/patron'), { prefix: '/patron'});
-  // Prepare the Employee SPA
-  app.useStaticAssets(join(__dirname, '../../dist/client/employee'), { prefix: '/employee'});
+  // // Prepare the Patron SPA
+  // app.useStaticAssets(join(__dirname, '../../dist/client/patron'), { prefix: '/patron-app'});
+  // // Prepare the Employee SPA
+  // app.useStaticAssets(join(__dirname, '../../dist/client/employee/'), { prefix: '/employee-app'});
 
   await app.listen(port);
   console.log(`Server running on port ${port}`);
