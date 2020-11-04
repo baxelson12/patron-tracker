@@ -1,5 +1,5 @@
 export const jwtConstants = {
-  secret: process.env.SECRET_KEY,
+  secret: process.env.SECRET_KEY || 'devKey',
 };
 
 export enum EmployeeRole {
