@@ -1,9 +1,9 @@
 <div class="flex justify-center mb-4">
-    <div class="w-full rounded overflow-hidden bg-white border border-gray-400">
+    <div class="w-full rounded overflow-hidden bg-white shadow">
         <div class="px-4 py-4">
             <!-- title and caret -->
             <div class="border-b border-gray-400 -mx-4 px-4 pb-4 mb-4 flex justify-between">
-                <h2 class="text-lg font-bold text-orange-600">Add Employee</h2>
+                <h2 class="text-lg font-bold text-blue-600">Add Employee</h2>
             </div>
             <!-- Add employee -->
             <form [formGroup]="employeeForm" (ngSubmit)="createEmployee()">
@@ -34,11 +34,11 @@
 </div>
 
 <div class="flex justify-center">
-    <div class="w-full rounded overflow-hidden bg-white border border-gray-400">
+    <div class="w-full rounded overflow-hidden bg-white shadow">
         <div class="px-4 py-4">
             <!-- title and caret -->
             <div class="border-b border-gray-400 -mx-4 px-4 pb-4 mb-4 flex justify-between">
-                <h2 class="text-lg font-bold text-orange-600">Employees</h2>
+                <h2 class="text-lg font-bold text-blue-600">Employees</h2>
             </div>
             <!-- list employees -->
             <ul *ngFor="let employee of employees$ | async">
