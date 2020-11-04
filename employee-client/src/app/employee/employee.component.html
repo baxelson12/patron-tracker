@@ -20,6 +20,8 @@
         
             </button>
             <div *ngIf="menuOpen" class="absolute right-0 top-0 w-48 py-2 bg-white rounded shadow-md">
+                <a routerLink="/employee/employee" (click)="closeMenu()"
+                    class="block px-4 py-2 text-gray-900 hover:bg-blue-500 hover:text-white">Employee</a>
                 <a routerLink="/employee/admin" (click)="closeMenu()"
                     class="block px-4 py-2 text-gray-900 hover:bg-blue-500 hover:text-white">Admin</a>
                 <a (click)="logout(); closeMenu()" routerLink="/login"
