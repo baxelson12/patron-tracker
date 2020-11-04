@@ -28,4 +28,13 @@ export class AdminService {
   deleteEmployee(id: number) {
     return this.http.delete(API_URL + `/employee/${id}`);
   }
+
+  lookupRange(range: {from: string, to: string}) {
+    return this.http.get(API_URL + '/visit', {
+      params: {
+        from: range.from,
+        to: range.to
+      }
+    })
+  }
 }

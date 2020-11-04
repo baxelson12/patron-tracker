@@ -10,11 +10,17 @@ import { AdminService } from './admin.service';
 })
 export class AdminComponent implements OnInit {
   employees$: Observable<any>;
+  lookupResults$: Observable<any>;
 
   employeeForm = new FormGroup({
     username: new FormControl(''),
     password: new FormControl(''),
     email: new FormControl('')
+  })
+
+  lookupForm = new FormGroup({
+    from: new FormControl(''),
+    to: new FormControl('')
   })
 
   constructor(private as: AdminService) {}
@@ -38,6 +44,10 @@ export class AdminComponent implements OnInit {
       this.employeeForm.reset();
       this.employees$ = this.as.getEmployees();
     })
+  }
+
+  lookupRange() {
+    this.lookupResults$ = this.as.lookupRange(this.lookupForm.value);
   }
 
 }
