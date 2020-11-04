@@ -4,3 +4,11 @@
 
 @import 'tailwindcss/utilities';
 /* You can add global styles to this file, and also import other style files */
+
+/*! purgecss start ignore */
+:host zxing-scanner::ng-deep {
+  max-height: 25vh;
+  width: 100%;
+  object-fit: contain;
+}
+/*! purgecss end ignore */
