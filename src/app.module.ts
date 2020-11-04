@@ -12,7 +12,7 @@ import { join } from 'path';
   imports: [
     TypeOrmModule.forRoot({
       type: "postgres",
-      url: process.env.DATABASE_URL || "postgres://user:pass@domain:5432/database",
+      url: process.env.DATABASE_URL,
       entities: ["dist/**/*.entity{.ts,.js}"],
       synchronize: true,
     }), 
