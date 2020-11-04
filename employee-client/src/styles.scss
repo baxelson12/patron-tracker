@@ -6,7 +6,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 /*! purgecss start ignore */
-:host zxing-scanner::ng-deep {
+zxing-scanner {
   max-height: 25vh;
   width: 100%;
   object-fit: contain;
