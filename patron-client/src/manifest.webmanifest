@@ -1,7 +1,7 @@
 {
   "name": "patron-client",
   "short_name": "patron-client",
-  "theme_color": "#f56565",
+  "theme_color": "#3182ce",
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "./",
