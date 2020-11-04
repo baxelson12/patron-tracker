@@ -24,7 +24,8 @@ import { join } from 'path';
       serveRoot: '/employee-app'
     }),
     ServeStaticModule.forRoot({
-      rootPath: join(join(__dirname, 'client/patron'))
+      rootPath: join(join(__dirname, 'client/patron')),
+      exclude: ['/employee-app*', '/api*']
     })
   ],
   controllers: [AppController],
