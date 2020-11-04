@@ -18,7 +18,7 @@ import { environment } from '../environments/environment';
     QrCodeModule,
     ReactiveFormsModule,
     NgxMaskModule.forRoot(),
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production, registrationStrategy: 'registerImmediately' })
   ],
   providers: [],
   bootstrap: [AppComponent]
