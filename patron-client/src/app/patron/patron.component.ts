@@ -9,7 +9,6 @@ import { PatronService } from './patron.service';
 })
 export class PatronComponent implements OnInit {
   QRGenerated = false;
-  test: string = "hello";
   patronForm = new FormGroup({
     name: new FormControl({ value: '', disabled: false }),
     phone: new FormControl({ value: '', disabled: false })
@@ -26,7 +25,6 @@ export class PatronComponent implements OnInit {
       phone: this.ps.getPhone() || ''
     });
     this.QRGenerated = !!this.patronName.value.length && !!this.patronPhone.value.length
-    console.log(this.QRGenerated)
   }
 
   generateQR() {
