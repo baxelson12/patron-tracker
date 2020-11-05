@@ -21,11 +21,11 @@ import { join } from 'path';
     VisitModule,
     ServeStaticModule.forRoot({
       rootPath: join(join(__dirname, 'client/employee')),
-      serveRoot: '/employee-app'
+      serveRoot: '/employee'
     }),
     ServeStaticModule.forRoot({
       rootPath: join(join(__dirname, 'client/patron')),
-      exclude: ['/employee-app*', '/api*']
+      serveRoot: '/patron'
     })
   ],
   controllers: [AppController],
