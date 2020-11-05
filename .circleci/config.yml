@@ -1,4 +1,8 @@
 version: 2.1
+general:
+  branches:
+    only:
+      - main
 orbs:
   heroku: circleci/heroku@1.2.3
 workflows:

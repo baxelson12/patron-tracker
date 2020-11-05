@@ -1,6 +1,6 @@
 {
-  "name": "patron-client",
-  "short_name": "patron-client",
+  "name": "Breadcrumb",
+  "short_name": "Breadcrumb",
   "theme_color": "#3182ce",
   "background_color": "#fafafa",
   "display": "standalone",
