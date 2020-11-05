@@ -1,6 +1,6 @@
 {
-  "name": "patron-track-employee-client",
-  "short_name": "employee-client",
+  "name": "Breadcrumb-Employee",
+  "short_name": "Breadcrumb-Employee",
   "theme_color": "#f56565",
   "background_color": "#fafafa",
   "display": "standalone",
