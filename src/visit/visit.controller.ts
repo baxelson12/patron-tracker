@@ -33,6 +33,10 @@ export class VisitController {
     @Post()
     @Roles(EmployeeRole.ADMIN, EmployeeRole.EMPLOYEE)
     create(@Request() req, @Body() cpd: CreatePatronDto) {
+        if (req.user.role === EmployeeRole.ADMIN) {
+            return this.vs.create(req.user.id, cpd)
+        }
+        
         return this.vs.create(req.user.employerId, cpd);
     }
 }
