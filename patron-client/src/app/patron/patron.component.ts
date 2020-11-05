@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { PatronService } from './patron.service';
 
 @Component({
   selector: 'app-patron',
@@ -7,19 +8,29 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./patron.component.scss']
 })
 export class PatronComponent implements OnInit {
-  nameEnable = false;
-  phoneEnable = false;
+  QRGenerated = false;
   test: string = "hello";
   patronForm = new FormGroup({
-    name: new FormControl({ value: '', disabled: this.nameEnable }),
-    phone: new FormControl({ value: '', disabled: this.phoneEnable })
+    name: new FormControl({ value: '', disabled: false }),
+    phone: new FormControl({ value: '', disabled: false })
   })
 
+  get patronName() { return this.patronForm.get('name') }
+  get patronPhone() { return this.patronForm.get('phone') }
 
-  constructor() { }
+  constructor(private ps: PatronService) { }
 
   ngOnInit(): void {
-  
+    this.patronForm.patchValue({
+      name: this.ps.getName() || '',
+      phone: this.ps.getPhone() || ''
+    });
+    this.QRGenerated = !!this.patronName.value.length && !!this.patronPhone.value.length
+    console.log(this.QRGenerated)
   }
 
+  generateQR() {
+    this.ps.storeData(this.patronForm.value);
+    this.QRGenerated = true;
+  }
 }
