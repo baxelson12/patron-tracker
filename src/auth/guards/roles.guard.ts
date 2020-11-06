@@ -8,9 +8,12 @@ export class RolesGuard implements CanActivate {
     canActivate(
         context: ExecutionContext
     ): boolean {
+        // Get roles from deco
         const roles = this.reflector.get<string[]>('roles', context.getHandler());
+        // If none needed, you can pass
         if (!roles) { return true; }
         const req = context.switchToHttp().getRequest();
+        // Compare roles on endpoint to user's roles
         return this.matchRoles(roles, req.user.role)
     }
 

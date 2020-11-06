@@ -28,19 +28,24 @@ export class Employee {
     @Column({ nullable: true })
     employerId: number;
 
+    // Every employee will have an admin/overseer
+    // (Except overseer)
     @ManyToOne(
         () => Employee,
         employee => employee.id
     )
+    // Put the id on this col
     @JoinColumn({ name: "employerId" })
     employer?: Employee;
 
+    // Admins will have patron visits
     @OneToMany(
         () => Visit,
         visit => visit.employee
     )
     visits: Visit[];
 
+    // Don't store plain text passwords
     @BeforeInsert()
     async hashPass() {
         this.password = await bcrypt.hash(this.password, 10);
