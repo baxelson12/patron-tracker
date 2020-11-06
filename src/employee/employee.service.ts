@@ -17,6 +17,7 @@ export class EmployeeService {
         return employee;
     }
 
+    // Query for username
     async findByName(username: string) {
         const employee = await this.er.findOne({
             where: {username: username}
@@ -41,6 +42,7 @@ export class EmployeeService {
 
     async destroy(adminId: number, employeeId: number) {
         const employee = await this.findById(employeeId)
+        // Should not destroy employees that don't belong to you!
         if (employee.employerId !== adminId) { throw ImproperPermissions }
         this.er.delete(employee);
     }

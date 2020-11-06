@@ -9,6 +9,7 @@ import { EmployeeService } from './employee.service';
 @Module({
   imports: [
     TypeOrmModule.forFeature([Employee]),
+    // Reregister module so we can decode jwts
     JwtModule.register({
       secret: jwtConstants.secret
     })

@@ -11,12 +11,14 @@ import { EmployeeService } from './employee.service';
 export class EmployeeController {
     constructor(private es: EmployeeService) {}
 
+    // Get all employees for given admin
     @Get()
     @Roles(EmployeeRole.ADMIN, EmployeeRole.OVERSEER)
     getEmployees(@Request() req) {
         return this.es.findByEmployer(req.user.id);
     }
 
+    // Create a new employee/admin
     @Post()
     @Roles(EmployeeRole.ADMIN, EmployeeRole.OVERSEER)
     create(@Request() req, @Body() ced: CreateEmployeeDto) {
@@ -24,6 +26,7 @@ export class EmployeeController {
         return this.es.create(req.user.id, ced);
     }
 
+    // Remove an employee/admin
     @Delete(':id')
     @Roles(EmployeeRole.ADMIN, EmployeeRole.OVERSEER)
     destroy(@Request() req, @Param('id') employeeId: number) {
