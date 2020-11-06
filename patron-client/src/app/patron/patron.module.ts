@@ -5,6 +5,8 @@ import { NgxMaskModule } from 'ngx-mask';
 import { QrCodeModule } from 'ng-qrcode';
 import { PatronComponent } from './patron.component';
 import { PatronRoutingModule } from './patron-routing.module';
+import { SharedModule } from '../shared/shared.module';
+
 
 
 
@@ -15,7 +17,8 @@ import { PatronRoutingModule } from './patron-routing.module';
     QrCodeModule,
     PatronRoutingModule,
     ReactiveFormsModule,
-    NgxMaskModule.forChild()
+    NgxMaskModule.forChild(),
+    SharedModule
   ]
 })
 export class PatronModule { }
