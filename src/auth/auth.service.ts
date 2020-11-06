@@ -11,8 +11,10 @@ export class AuthService {
 
     async validate(loginDto: LoginDto): Promise<any> {
         const user = await this.es.findByName(loginDto.username)
+        // If user isn't found
         if (!user) { throw UserNotFound }
 
+        // Check password hashes
         const valid = await bcrypt.compare(loginDto.password, user.password);
         if (!valid) { throw InvalidCredentials }
 
@@ -20,10 +22,12 @@ export class AuthService {
     }
 
     async validateUser(payload: any) {
+        // sub will be id
         return await this.es.findById(payload.sub);
     }
 
     async login(user: any) {
+        // Values to tuck into jwt
         const payload = { sub: user.id, username: user.username, role: user.role }
         return {
             token: this.js.sign(payload)
