@@ -10,11 +10,15 @@ import { InputLabelDirective } from './directives/input/input-label.directive';
 import { InputWrapperDirective } from './directives/input/input-wrapper.directive';
 import { InputControlDirective } from './directives/input/input-control.directive';
 import { InputComponent } from './components/input/input.component';
+import { NavWrapperDirective } from './directives/nav/nav-wrapper.directive';
+import { NavHeaderDirective } from './directives/nav/nav-header.directive';
+import { NavSubheaderDirective } from './directives/nav/nav-subheader.directive';
+import { NavComponent } from './components/nav/nav.component';
 
 
 
 @NgModule({
-  declarations: [CardWrapperDirective, CardInnerDirective, CardImageDirective, CardContentDirective, CardInfoDirective, CardComponent, InputLabelDirective, InputWrapperDirective, InputControlDirective, InputComponent],
+  declarations: [CardWrapperDirective, CardInnerDirective, CardImageDirective, CardContentDirective, CardInfoDirective, CardComponent, InputLabelDirective, InputWrapperDirective, InputControlDirective, InputComponent, NavWrapperDirective, NavHeaderDirective, NavSubheaderDirective, NavComponent],
   imports: [CommonModule],
   exports: [
     CardWrapperDirective,
@@ -26,7 +30,11 @@ import { InputComponent } from './components/input/input.component';
     InputControlDirective,
     InputLabelDirective,
     InputWrapperDirective,
-    InputComponent
+    InputComponent,
+    NavHeaderDirective,
+    NavSubheaderDirective,
+    NavWrapperDirective,
+    NavComponent
   ]
 })
 export class SharedModule { }

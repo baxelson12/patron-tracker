@@ -1,21 +1,18 @@
-<nav class="-mx-3 bg-white px-3 pt-2 text-xl">
-    Breadcrumbs
-</nav>
-<nav class="-mx-3 bg-white px-3 pb-4 pt-4 font-bold mb-12 shadow flex justify-between">
+<navbar title="Breadcrumb">
     <div *ngIf="!patronName.value">Add credentials below.</div>
     <div *ngIf="patronName.value" class="flex justify-between w-full items-center">
         <span>{{patronName.value}}</span>
         <button (click)="QRGenerated = false">
-            <svg class="fill-current text-gray-600" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg class="fill-current text-gray-600" width="20" height="20" viewBox="0 0 20 20" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
 
                 <path
-                    d="M13.5858 3.58579C14.3668 2.80474 15.6332 2.80474 16.4142 3.58579C17.1953 4.36683 17.1953 5.63316 16.4142 6.41421L15.6213 7.20711L12.7929 4.37868L13.5858 3.58579Z"
-                     />
+                    d="M13.5858 3.58579C14.3668 2.80474 15.6332 2.80474 16.4142 3.58579C17.1953 4.36683 17.1953 5.63316 16.4142 6.41421L15.6213 7.20711L12.7929 4.37868L13.5858 3.58579Z" />
                 <path d="M11.3787 5.79289L3 14.1716V17H5.82842L14.2071 8.62132L11.3787 5.79289Z" />
             </svg>
         </button>
     </div>
-</nav>
+</navbar>
 
 <card img-src="./assets/restaurant.jpeg" img-alt="Restaurant scene">
     <div card-content *ngIf="QRGenerated">
