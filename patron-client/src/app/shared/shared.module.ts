@@ -6,11 +6,15 @@ import { CardImageDirective } from './directives/card/card-image.directive';
 import { CardContentDirective } from './directives/card/card-content.directive';
 import { CardInfoDirective } from './directives/card/card-info.directive';
 import { CardComponent } from './components/card/card.component';
+import { InputLabelDirective } from './directives/input/input-label.directive';
+import { InputWrapperDirective } from './directives/input/input-wrapper.directive';
+import { InputControlDirective } from './directives/input/input-control.directive';
+import { InputComponent } from './components/input/input.component';
 
 
 
 @NgModule({
-  declarations: [CardWrapperDirective, CardInnerDirective, CardImageDirective, CardContentDirective, CardInfoDirective, CardComponent],
+  declarations: [CardWrapperDirective, CardInnerDirective, CardImageDirective, CardContentDirective, CardInfoDirective, CardComponent, InputLabelDirective, InputWrapperDirective, InputControlDirective, InputComponent],
   imports: [CommonModule],
   exports: [
     CardWrapperDirective,
@@ -18,7 +22,11 @@ import { CardComponent } from './components/card/card.component';
     CardImageDirective,
     CardContentDirective,
     CardInfoDirective,
-    CardComponent
+    CardComponent,
+    InputControlDirective,
+    InputLabelDirective,
+    InputWrapperDirective,
+    InputComponent
   ]
 })
 export class SharedModule { }
