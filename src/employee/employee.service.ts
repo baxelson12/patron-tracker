@@ -1,8 +1,8 @@
-import { Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
-import { JwtService } from '@nestjs/jwt';
+import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CreateEmployeeDto } from 'src/shared/dto/employee.dto';
 import { Employee } from 'src/shared/entities/employee.entity';
+import { EmployeeNotFound, ImproperPermissions } from 'src/shared/exceptions/Employee';
 import { Repository } from 'typeorm';
 
 @Injectable()
@@ -13,7 +13,7 @@ export class EmployeeService {
 
     async findById(id: number) {
         const employee = await this.er.findOne(id);
-        if (!employee) { throw new NotFoundException() }
+        if (!employee) { throw EmployeeNotFound }
         return employee;
     }
 
@@ -21,7 +21,7 @@ export class EmployeeService {
         const employee = await this.er.findOne({
             where: {username: username}
         })
-        if (!employee) { throw new NotFoundException(`Can't find employee`) }
+        if (!employee) { throw EmployeeNotFound }
 
         return employee;
     }
@@ -41,7 +41,7 @@ export class EmployeeService {
 
     async destroy(adminId: number, employeeId: number) {
         const employee = await this.findById(employeeId)
-        if (employee.employerId !== adminId) { throw new UnauthorizedException('Employee not registered to admin.')}
+        if (employee.employerId !== adminId) { throw ImproperPermissions }
         this.er.delete(employee);
     }
 }
