@@ -10,6 +10,7 @@ import { join } from 'path';
 
 @Module({
   imports: [
+    // DB connection
     TypeOrmModule.forRoot({
       type: "postgres",
       url: process.env.DATABASE_URL,
@@ -19,10 +20,12 @@ import { join } from 'path';
     EmployeeModule, 
     AuthModule, 
     VisitModule,
+    // Serve the employee angular app
     ServeStaticModule.forRoot({
       rootPath: join(join(__dirname, 'client/employee')),
       serveRoot: '/employee'
     }),
+    // Serve the patron angular app
     ServeStaticModule.forRoot({
       rootPath: join(join(__dirname, 'client/patron')),
       serveRoot: '/patron'
