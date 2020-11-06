@@ -21,6 +21,7 @@ export class Visit {
   @Column()
   phone: string;
 
+  // Every visit will have an admin
   @ManyToOne(
       () => Employee,
       employee => employee.visits
