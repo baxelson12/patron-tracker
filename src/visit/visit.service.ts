@@ -11,6 +11,7 @@ export class VisitService {
         @InjectRepository(Visit) private vr: Repository<Visit>,
         private es: EmployeeService
     ) {}
+    
     async findByPhone(adminId: number, phone: string) {
         const admin = await this.es.findById(adminId)
         return await this.vr.find({ employee: admin, phone: phone })
@@ -39,11 +40,11 @@ export class VisitService {
     }
 
     async create(adminId: number, cpd: CreatePatronDto) {
-        const visit = this.vr.create()
-        visit.name = cpd.name;
-        visit.phone = cpd.phone;
-        visit.employee = await this.es.findById(adminId);
-        visit.timestamp = new Date();
+        const visit = this.vr.create({
+            ...cpd,
+            employee: await this.es.findById(adminId),
+            timestamp: new Date()
+        });
 
         this.vr.save(visit);
     }
