@@ -24,6 +24,7 @@ export class VisitService {
 
     async findById(adminId: number, visitId: number) {
         const admin = await this.es.findById(adminId);
+        // Should only get visits belonging to admin
         const visit = await this.vr.findOne(visitId, { where: { employee: admin }});
         if (!visit) { throw new NotFoundException() }
 
@@ -32,6 +33,7 @@ export class VisitService {
 
     async findAll(adminId: number, start?: Date, end?: Date) {
         const admin = await this.es.findById(adminId);
+        // Does it have queries ?
         if (!start || !end) {
             return await this.vr.find({ employee: admin })
         }
@@ -40,6 +42,7 @@ export class VisitService {
     }
 
     async create(adminId: number, cpd: CreatePatronDto) {
+        // Build a visit
         const visit = this.vr.create({
             ...cpd,
             employee: await this.es.findById(adminId),

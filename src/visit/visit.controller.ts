@@ -28,6 +28,7 @@ export class VisitController {
     @Post()
     @Roles(EmployeeRole.ADMIN, EmployeeRole.EMPLOYEE)
     create(@Request() req, @Body() cpd: CreatePatronDto) {
+        // Make sure admins don't assign visits to overseers
         if (req.user.role === EmployeeRole.ADMIN) {
             return this.vs.create(req.user.id, cpd)
         }
