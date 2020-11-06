@@ -3,7 +3,7 @@ import { request } from 'express';
 import { JwtGuard } from 'src/auth/guards/jwt-auth.guard';
 import { RolesGuard } from 'src/auth/guards/roles.guard';
 import { EmployeeRole } from 'src/shared/constants';
-import { Roles } from 'src/shared/decorators/roles.decorator';
+import { Roles } from 'src/auth/decorators/roles.decorator';
 import { CreateEmployeeDto } from 'src/shared/dto/employee.dto';
 import { EmployeeService } from './employee.service';
 

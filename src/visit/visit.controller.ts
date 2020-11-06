@@ -4,7 +4,7 @@ import { JwtGuard } from 'src/auth/guards/jwt-auth.guard';
 import { RolesGuard } from 'src/auth/guards/roles.guard';
 import { EmployeeService } from 'src/employee/employee.service';
 import { EmployeeRole } from 'src/shared/constants';
-import { Roles } from 'src/shared/decorators/roles.decorator';
+import { Roles } from 'src/auth/decorators/roles.decorator';
 import { CreatePatronDto } from 'src/shared/dto/patron.dto';
 import { Visit } from 'src/shared/entities/visit.entity';
 import { Repository } from 'typeorm';
