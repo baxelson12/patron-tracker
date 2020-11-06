@@ -9,6 +9,8 @@ export class CardInfoDirective extends BaseDirective {
     'flex',
     'self-start',
     'text-gray-600',
-    'leading-relaxed'
+    'leading-relaxed',
+    'italic',
+    'text-xs'
   ]
 }
