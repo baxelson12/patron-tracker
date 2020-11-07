@@ -7,7 +7,7 @@ import {
   HttpErrorResponse
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { TokenStorageService } from '../auth/token-storage.service';
+import { TokenStorageService } from '../../auth/token-storage.service';
 import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
