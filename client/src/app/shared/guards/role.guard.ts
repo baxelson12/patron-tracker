@@ -1,7 +1,6 @@
 import { Location } from '@angular/common';
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { CanActivate } from '@angular/router';
 import { TokenStorageService } from '../../auth/token-storage.service';
 
 @Injectable({

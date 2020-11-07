@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, VERSION, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, VERSION, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Result } from '@zxing/library';
 import { ZXingScannerComponent } from '@zxing/ngx-scanner';

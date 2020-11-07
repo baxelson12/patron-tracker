@@ -1,9 +1,5 @@
-import { AfterViewInit, Component, VERSION, ViewChild } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Result } from '@zxing/library';
-import { ZXingScannerComponent } from '@zxing/ngx-scanner';
+import { Component } from '@angular/core';
 import { TokenStorageService } from '../auth/token-storage.service';
-import { EmployeeService } from './employee.service';
 
 @Component({
   selector: 'app-employee',
