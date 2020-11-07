@@ -1,0 +1,6 @@
+<div card-wrapper>
+    <div card-inner>
+        <img *ngIf="imgSrc" card-image [src]="imgSrc" [alt]="imgAlt">
+        <ng-content></ng-content>
+    </div>
+</div>
