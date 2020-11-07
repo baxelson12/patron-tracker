@@ -19,7 +19,8 @@ export class TokenStorageService {
   public saveToken(token: string) {
     window.sessionStorage.removeItem(TOKEN_KEY);
     window.sessionStorage.setItem(TOKEN_KEY, token);
-    const decoded = jwt_decode(token);
+    // TODO: Create an interface for this
+    const decoded: any = jwt_decode(token);
 
     this.saveUser(decoded.username);
     this.saveRole(decoded.role);
