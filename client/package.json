@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build:prod": "NODE_ENV=production ng build --prod",
-    "postinstall": "ng build --prod --base-href /client/"
+    "postinstall": "ng build --prod --base-href /"
   },
   "private": true,
   "dependencies": {
