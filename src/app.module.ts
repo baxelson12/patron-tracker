@@ -22,13 +22,7 @@ import { join } from 'path';
     VisitModule,
     // Serve the employee angular app
     ServeStaticModule.forRoot({
-      rootPath: join(join(__dirname, 'client/employee')),
-      serveRoot: '/employee'
-    }),
-    // Serve the patron angular app
-    ServeStaticModule.forRoot({
-      rootPath: join(join(__dirname, 'client/patron')),
-      serveRoot: '/patron'
+      rootPath: join(join(__dirname, 'client'))
     })
   ],
   controllers: [AppController],
