@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { CreateEmployeeDto } from 'src/shared/dto/employee.dto';
-import { Employee } from 'src/shared/entities/employee.entity';
-import { EmployeeNotFound, ImproperPermissions } from 'src/shared/exceptions/Employee';
+import { CreateEmployeeDto } from '../shared/dto/employee.dto';
+import { Employee } from '../shared/entities/employee.entity';
+import { EmployeeNotFound, ImproperPermissions } from '../shared/exceptions/Employee';
 import { Repository } from 'typeorm';
 
 @Injectable()

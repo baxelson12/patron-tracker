@@ -1,9 +1,9 @@
 import { Body, Controller, Delete, Get, Param, Post, Request, UseGuards } from '@nestjs/common';
-import { JwtGuard } from 'src/auth/guards/jwt-auth.guard';
-import { RolesGuard } from 'src/auth/guards/roles.guard';
-import { EmployeeRole } from 'src/shared/constants';
-import { Roles } from 'src/auth/decorators/roles.decorator';
-import { CreateEmployeeDto } from 'src/shared/dto/employee.dto';
+import { JwtGuard } from '../auth/guards/jwt-auth.guard';
+import { RolesGuard } from '../auth/guards/roles.guard';
+import { EmployeeRole } from '../shared/constants';
+import { Roles } from '../auth/decorators/roles.decorator';
+import { CreateEmployeeDto } from '../shared/dto/employee.dto';
 import { EmployeeService } from './employee.service';
 
 @UseGuards(JwtGuard, RolesGuard)

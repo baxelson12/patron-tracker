@@ -1,8 +1,8 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { EmployeeService } from 'src/employee/employee.service';
-import { CreatePatronDto } from 'src/shared/dto/patron.dto';
-import { Visit } from 'src/shared/entities/visit.entity';
+import { EmployeeService } from '../employee/employee.service';
+import { CreatePatronDto } from '../shared/dto/patron.dto';
+import { Visit } from '../shared/entities/visit.entity';
 import { Between, Repository } from 'typeorm';
 
 @Injectable()
