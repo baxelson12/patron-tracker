@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { AdminService } from './admin.service';
 
@@ -23,7 +24,7 @@ export class AdminComponent implements OnInit {
     to: new FormControl('')
   })
 
-  constructor(private as: AdminService) {}
+  constructor(private as: AdminService, private ts: ToastrService) {}
 
   ngOnInit(): void {
     this.employees$ = this.as.getEmployees();
@@ -34,6 +35,7 @@ export class AdminComponent implements OnInit {
     this.as.deleteEmployee(employeeId).subscribe((val) => {
       console.log(val);
       this.employees$ = this.as.getEmployees();
+      this.ts.success("Employee deleted.")
     });
   }
 
@@ -43,6 +45,7 @@ export class AdminComponent implements OnInit {
       console.log(val);
       this.employeeForm.reset();
       this.employees$ = this.as.getEmployees();
+      this.ts.success("Employee created.")
     })
   }
 

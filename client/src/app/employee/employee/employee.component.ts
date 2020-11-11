@@ -2,6 +2,7 @@ import { AfterViewInit, Component, VERSION, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Result } from '@zxing/library';
 import { ZXingScannerComponent } from '@zxing/ngx-scanner';
+import { ToastrService } from 'ngx-toastr';
 import { EmployeeService } from './employee.service';
 
 @Component({
@@ -23,7 +24,7 @@ export class EmployeeComponent implements AfterViewInit {
   availableDevices: MediaDeviceInfo[];
   currentDevice: MediaDeviceInfo;
 
-  constructor(private es: EmployeeService) {}
+  constructor(private es: EmployeeService, private ts: ToastrService) {}
 
   ngAfterViewInit(): void {
     this.scanner.camerasFound.subscribe((devices: MediaDeviceInfo[]) => {
@@ -39,7 +40,10 @@ export class EmployeeComponent implements AfterViewInit {
       }
     });
 
-    this.scanner.camerasNotFound.subscribe(() => this.hasDevices = false);
+    this.scanner.camerasNotFound.subscribe(() => {
+      this.ts.error("No camera found!")
+      this.hasDevices = false
+    });
     this.scanner.scanComplete.subscribe((result: Result) => this.qrResult = result);
     this.scanner.permissionResponse.subscribe((perm: boolean) => this.hasPermission = perm);
   }
@@ -72,12 +76,13 @@ export class EmployeeComponent implements AfterViewInit {
 
   onSubmit() {
     this.es.post(this.employeeForm.value).subscribe((val) => {
-      console.log(val);
+      this.ts.success('Visit saved.')
       this.resetForm();
     })
   }
 
   resetForm(): void {
+    this.ts.info('Cleared form.')
     this.employeeForm.reset()
     this.employeeForm.patchValue({
       timestamp: new Date()
