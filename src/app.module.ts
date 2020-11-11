@@ -14,7 +14,9 @@ import { join } from 'path';
     TypeOrmModule.forRoot({
       type: "postgres",
       url: process.env.DATABASE_URL,
-      entities: ["dist/**/*.entity{.ts,.js}"],
+      entities: [
+        __dirname + '/**/**/entities/*.entity{.ts,.js}'
+      ],
       synchronize: true,
     }), 
     EmployeeModule, 
