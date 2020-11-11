@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
-import { EmployeeService } from 'src/employee/employee.service';
-import { LoginDto } from 'src/auth/dto/login.dto';
+import { EmployeeService } from '../employee/employee.service';
+import { LoginDto } from './dto/login.dto';
 import { UserNotFound, InvalidCredentials } from './exceptions/user';
 
 @Injectable()
